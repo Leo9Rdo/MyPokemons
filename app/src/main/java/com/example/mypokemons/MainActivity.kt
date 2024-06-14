@@ -1,6 +1,10 @@
 package com.example.mypokemons
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +15,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+            Log.d("tag","hello, onCreate")
+
+
+        val imageCard : ImageView = this.findViewById<ImageView>(R.id.imgCard)
+        imageCard.setOnClickListener{
+            val intent = Intent(this, SecondActivity::class.java)
+            this.startActivity(intent)
+
         }
     }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
+        override fun onStop() {
+            super.onStop()
+            Log.d("tag","hello, onStop")
+        }
 }
+

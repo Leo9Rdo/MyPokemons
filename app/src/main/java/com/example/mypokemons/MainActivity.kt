@@ -3,29 +3,36 @@ package com.example.mypokemons
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.mypokemons.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var  binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-            Log.d("tag","hello, onCreate")
+        val imageCard: ImageView=binding.imgCard
 
+        imageCard.setImageResource(R.drawable.butterfree)
 
-        val imageCard : ImageView = this.findViewById<ImageView>(R.id.imgCard)
-        imageCard.setOnClickListener{
-            val intent = Intent(this, SecondActivity::class.java)
-            this.startActivity(intent)
+        binding.imgCard.setOnClickListener{
+            val intent = Intent(this,SecondActivity::class.java)
+            val bundle = Bundle()
+            intent.putExtra("name","butterfree")
+            intent.putExtra("type", "pokemon")
+            intent.putExtra("height", "23")
+            intent.putExtra("weight","42")
 
+            intent.putExtras(bundle)
+            startActivity(intent)
         }
     }
+
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
@@ -39,5 +46,6 @@ class MainActivity : AppCompatActivity() {
             super.onStop()
             Log.d("tag","hello, onStop")
         }
-}
 
+
+}

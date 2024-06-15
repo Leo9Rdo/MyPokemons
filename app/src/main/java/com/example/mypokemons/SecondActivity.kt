@@ -29,8 +29,8 @@ class SecondActivity : AppCompatActivity() {
         }
 
 
-        val btn_Back2 : Button=this.findViewById<Button>(R.id.btn_Back2)
-            btn_Back2.setOnClickListener{
+        val btn_back2 : Button=this.findViewById<Button>(R.id.btn_back2)
+            btn_back2.setOnClickListener{
                 finish()
 
             }

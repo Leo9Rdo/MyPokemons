@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btn_Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#7B3F00"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.926" />
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btn_Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#7B3F00"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.926" />
 
     <ImageView
-        android:id="@+id/imgCard"
+        android:id="@+id/img_Card"
         android:layout_width="367dp"
         android:layout_height="541dp"
         android:scaleType="centerCrop"

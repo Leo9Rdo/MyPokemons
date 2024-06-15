@@ -16,9 +16,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val imageCard: ImageView=binding.imgCard
 
-        imageCard.setImageResource(R.drawable.butterfree)
+       binding.imgCard.setImageResource(R.drawable.butterfree)
 
         binding.imgCard.setOnClickListener{
             val intent = Intent(this,SecondActivity::class.java)

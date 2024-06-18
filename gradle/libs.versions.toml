@@ -1,5 +1,7 @@
 [versions]
 agp = "8.4.1"
+constraintlayoutCompose = "1.1.0-alpha13"
+constraintlayoutVersion = "2.2.0-alpha13"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -12,6 +14,8 @@ constraintlayout = "2.1.4"
 playServicesMaps = "18.2.0"
 
 [libraries]
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
+androidx-constraintlayout-v220alpha13 = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

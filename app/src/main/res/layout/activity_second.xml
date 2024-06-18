@@ -42,48 +42,52 @@
 
     <TextView
         android:id="@+id/txt_name"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="52dp"
         android:gravity="center"
         android:text="Name"
+        tools:text="Butterfree"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_type"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Type"
+        tools:text="Grass"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <TextView
         android:id="@+id/txt_height"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Height"
+        tools:text="16 kg"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_type" />
 
     <TextView
         android:id="@+id/txt_width"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Width"
+        tools:text="7 m"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_height" />

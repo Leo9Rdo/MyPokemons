@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity"
-    android:background="#FFFDD0">
+    android:background="#FFFDD0"
+    tools:context=".SecondActivity">
 
     <ImageView
         android:id="@+id/image_card2"
-        android:layout_width="221dp"
-        android:layout_height="570dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.81"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329"
-        app:srcCompat="@drawable/ic_launcher_background"
-        />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <Button
         android:id="@+id/btn_back2"
@@ -33,25 +29,20 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942"
-
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Name"
-        tools:text="Butterfree"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Butterfree" />
 
     <TextView
         android:id="@+id/txt_type"
@@ -61,10 +52,10 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Type"
-        tools:text="Grass"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_name"
+        tools:text="Grass" />
 
     <TextView
         android:id="@+id/txt_height"
@@ -74,10 +65,10 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Height"
-        tools:text="16 kg"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_type" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_type"
+        tools:text="16 kg" />
 
     <TextView
         android:id="@+id/txt_width"
@@ -87,10 +78,10 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Width"
-        tools:text="7 m"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_height" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_height"
+        tools:text="7 m" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

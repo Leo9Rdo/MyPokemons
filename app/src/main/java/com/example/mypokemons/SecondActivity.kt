@@ -13,6 +13,7 @@ import androidx.annotation.DrawableRes
 class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySecondBinding
+
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,22 +21,19 @@ class SecondActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         intent?.let {
-            val name = it.getStringExtra("name")
-            val type = it.getStringExtra("type")
-            val height = it.getStringExtra("height")
-            val weight = it.getStringExtra("weight")
-            val imgRes= it.getIntExtra("image",0)
+            val pokemon_id = it.getIntExtra("pokemon_id", -1)
+            val pokemon = pokemon_rep.get_pokemon_by_id(pokemon_id)
 
-            if (name != null && type != null && height != null && weight != null && imgRes != 0) {
-            with(binding) {
-                txtName.text = name
-                txtType.text= type
-                txtHeight.text=height
-                txtWidth.text=weight
-                imageCard2.setImageResource(imgRes)
-            }
-        }
-            else {
+
+            if (pokemon != null) {
+                with(binding) {
+                    txtName.text = pokemon.name
+                    txtType.text = pokemon.type
+                    txtHeight.text = pokemon.height
+                    txtWidth.text = pokemon.weight
+                    imageCard2.setImageResource(pokemon.image_res)
+                }
+            } else {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                 finish()
             }
@@ -44,8 +42,5 @@ class SecondActivity : AppCompatActivity() {
         binding.btnBack2.setOnClickListener {
             finish()
         }
-    }
-    private fun ImageView.loadImage(@DrawableRes resId: Int) {
-        this.setImageResource(resId)
     }
 }

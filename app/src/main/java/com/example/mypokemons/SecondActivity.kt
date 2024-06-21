@@ -1,9 +1,14 @@
 package com.example.mypokemons
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.content.Intent
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mypokemons.databinding.ActivitySecondBinding
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.annotation.DrawableRes
 
 class SecondActivity : AppCompatActivity() {
 
@@ -13,26 +18,27 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val extras = intent.extras
-        if (extras != null) {
-            val name = extras.getString("name")
-            val type = extras.getString("type")
-            val height = extras.getString("height")
-            val weight = extras.getString("weight")
+        intent?.let {
+            val pokemon_id = it.getIntExtra("pokemon_id", -1)
+            val pokemon = pokemon_rep.get_pokemon_by_id(pokemon_id)
 
-            binding.txtName.setText("Name: " + name);
-            binding.txtType.setText("Type: " + type);
-            binding.txtHeight.setText("Height: " + height + " m");
-            binding.txtWidth.setText("Weight: " + weight + " kg");
 
-            binding.imageCard2.setImageResource(R.drawable.butterfree);
+            if (pokemon != null) {
+                with(binding) {
+                    txtName.text = pokemon.name
+                    txtType.text = pokemon.type
+                    txtHeight.text = pokemon.height
+                    txtWidth.text = pokemon.weight
+                    imageCard2.setImageResource(pokemon.image_res)
+                }
+            } else {
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
 
-
-        val btn_back2 : Button=this.findViewById<Button>(R.id.btn_back2)
-            btn_back2.setOnClickListener{
-                finish()
-
-            }
+        binding.btnBack2.setOnClickListener {
+            finish()
+        }
     }
 }

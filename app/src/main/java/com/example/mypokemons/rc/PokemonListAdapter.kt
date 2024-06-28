@@ -2,10 +2,13 @@ package com.example.mypokemons.rc
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mypokemons.PokemonDiff
 import com.example.mypokemons.R
 import com.example.mypokemons.databinding.ItemPokemonBinding
 import com.example.mypokemons.pokemon
+import com.example.mypokemons.pokemon_rep
 
 class PokemonListAdapter(private var pokemonList: List<pokemon>) :
     RecyclerView.Adapter<PokemonListAdapter.PokemonViewHolder>() {
@@ -27,9 +30,11 @@ class PokemonListAdapter(private var pokemonList: List<pokemon>) :
     }
 
     fun updatePokemonList(newList: List<pokemon>) {
-        pokemonList = newList
-    }
 
+        val diffResult = DiffUtil.calculateDiff(PokemonDiff(pokemonList, newList))
+        pokemonList = newList
+        diffResult.dispatchUpdatesTo(this)
+    }
 
     inner class PokemonViewHolder(private val binding: ItemPokemonBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -45,5 +50,6 @@ class PokemonListAdapter(private var pokemonList: List<pokemon>) :
             binding.pokemonImage.setImageResource(pokemon.image_res)
         }
     }
+
     fun getPokemonList() = pokemonList
 }

@@ -27,9 +27,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         adapter = PokemonListAdapter(pokemon_data)
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         adapter.onClick = { pokemon ->
             val intent = Intent(this, SecondActivity::class.java).apply {
@@ -38,11 +42,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        binding.btnNext.setOnClickListener {
-//            current_index = (current_index + 1) % pokemon_data.size
-//            update()
-//        }
-
         binding.pokemonImage.setOnClickListener {
             val currentPokemon = pokemon_data[current_index]
             val intent = Intent(this, SecondActivity::class.java).apply {
@@ -50,12 +49,6 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-    }
-    private fun updateList() {
-        val newList = pokemon_rep.pokemons // Обновленный список покемонов
-        val diffResult = DiffUtil.calculateDiff(PokemonDiff(adapter.getPokemonList(), newList))
-        adapter.updatePokemonList(newList)
-        diffResult.dispatchUpdatesTo(adapter)
     }
 
     private fun update() {

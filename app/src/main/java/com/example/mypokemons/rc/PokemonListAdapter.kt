@@ -13,7 +13,7 @@ import com.example.mypokemons.pokemon_rep
 class PokemonListAdapter(private var pokemonList: List<pokemon>) :
     RecyclerView.Adapter<PokemonViewHolder>() {
 
-    var onClick: ((pokemon: Pokemon) -> Unit) = { }
+    var onClick: ((pokemon: pokemon) -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         val binding = ItemPokemonBinding.inflate(LayoutInflater.from(parent.context), parent, false)

@@ -17,5 +17,4 @@ class PokemonDiff(private val oldList: List<pokemon>, private val newList: List<
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition] == newList[newItemPosition]
     }
-
 }

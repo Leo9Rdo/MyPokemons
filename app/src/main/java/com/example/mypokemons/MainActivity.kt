@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-
         adapter.onClick = { pokemon:pokemon ->
 
             val intent = Intent(this, SecondActivity::class.java).apply {

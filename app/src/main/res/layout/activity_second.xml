@@ -82,5 +82,4 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_height"
         tools:text="7 m" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,6 @@ class SecondActivity : AppCompatActivity() {
             val pokemon_id = it.getIntExtra("pokemon_id", -1)
             val pokemon = pokemon_rep.get_pokemon_by_id(pokemon_id)
 
-
             if (pokemon != null) {
                 with(binding) {
                     txtName.text = pokemon.name

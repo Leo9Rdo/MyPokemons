@@ -10,6 +10,7 @@ import com.example.mypokemons.databinding.ItemPokemonBinding
 import com.example.mypokemons.pokemon
 import com.example.mypokemons.pokemon_rep
 
+
 class PokemonListAdapter(private var pokemonList: List<pokemon>) :
     RecyclerView.Adapter<PokemonViewHolder>() {
 

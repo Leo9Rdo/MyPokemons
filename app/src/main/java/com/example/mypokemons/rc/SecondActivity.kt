@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 
+
 class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySecondBinding

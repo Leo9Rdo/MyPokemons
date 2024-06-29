@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        adapter.onClick = { pokemon ->
+
+        adapter.onClick = { pokemon:pokemon ->
+
             val intent = Intent(this, SecondActivity::class.java).apply {
                 putExtra("pokemon_id", pokemon.id)
             }

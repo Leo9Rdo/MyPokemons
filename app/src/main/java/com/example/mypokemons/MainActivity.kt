@@ -17,9 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: PokemonListAdapter
-    private var current_index = 0
 
-    private val pokemon_data = pokemon_rep.pokemons
+    private val pokemon_data = pokemons
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,17 +41,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val newList = pokemons
+        adapter.updatePokemonList(newList)
+
         binding.pokemonImage.setOnClickListener {
-            val currentPokemon = pokemon_data[current_index]
-            val intent = Intent(this, SecondActivity::class.java).apply {
-                putExtra("pokemon_id", currentPokemon.id)
+            val currentPokemon = pokemon_data.firstOrNull()
+            currentPokemon?.let {
+                val intent = Intent(this, SecondActivity::class.java).apply {
+                    putExtra("pokemon_id", currentPokemon.id)
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
         }
     }
 
-    private fun update() {
-        val currentPokemon = pokemon_data[current_index]
-        binding.pokemonImage.setImageResource(currentPokemon.image_res)
-    }
 }

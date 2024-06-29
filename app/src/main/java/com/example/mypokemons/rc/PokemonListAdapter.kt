@@ -11,7 +11,7 @@ import com.example.mypokemons.pokemon
 import com.example.mypokemons.pokemon_rep
 
 class PokemonListAdapter(private var pokemonList: List<pokemon>) :
-    RecyclerView.Adapter<PokemonListAdapter.PokemonViewHolder>() {
+    RecyclerView.Adapter<PokemonViewHolder>() {
 
     var onClick: ((pokemon: pokemon) -> Unit)? = null
 
@@ -22,7 +22,7 @@ class PokemonListAdapter(private var pokemonList: List<pokemon>) :
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemon = pokemonList[position]
-        holder.bind(pokemon)
+        holder.bind(pokemon, onClick)
     }
 
     override fun getItemCount(): Int {
@@ -34,21 +34,6 @@ class PokemonListAdapter(private var pokemonList: List<pokemon>) :
         val diffResult = DiffUtil.calculateDiff(PokemonDiff(pokemonList, newList))
         pokemonList = newList
         diffResult.dispatchUpdatesTo(this)
-    }
-
-    inner class PokemonViewHolder(private val binding: ItemPokemonBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        init {
-            binding.root.setOnClickListener {
-                onClick?.invoke(pokemonList[adapterPosition])
-            }
-        }
-
-        fun bind(pokemon: pokemon) {
-            binding.pokemonName.text = pokemon.name
-            binding.pokemonImage.setImageResource(pokemon.image_res)
-        }
     }
 
     fun getPokemonList() = pokemonList

@@ -9,12 +9,12 @@ class PokemonViewHolder(
     private val binding: ItemPokemonBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(pokemon: pokemon, onClick: (pokemon) -> Unit) {
+    fun bind(pokemon: pokemon, onClick: ((pokemon: pokemon) -> Unit)?) {
         with(binding) {
             pokemonImage.setImageResource(pokemon.image_res)
             pokemonName.text = pokemon.name
             root.setOnClickListener {
-                onClick(pokemon)
+                onClick?.invoke(pokemon)
             }
         }
     }

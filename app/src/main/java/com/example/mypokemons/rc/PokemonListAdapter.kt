@@ -5,16 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mypokemons.PokemonDiff
-import com.example.mypokemons.R
 import com.example.mypokemons.databinding.ItemPokemonBinding
-import com.example.mypokemons.pokemon
-import com.example.mypokemons.pokemon_rep
+import com.example.mypokemons.Pokemon
 
 
-class PokemonListAdapter(private var pokemonList: List<pokemon>) :
+class PokemonListAdapter(private var pokemonList: List<Pokemon>) :
     RecyclerView.Adapter<PokemonViewHolder>() {
 
-    var onClick: ((pokemon: pokemon) -> Unit) = { }
+    var onClick: ((pokemon: Pokemon) -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         val binding = ItemPokemonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -30,7 +28,7 @@ class PokemonListAdapter(private var pokemonList: List<pokemon>) :
         return pokemonList.size
     }
 
-    fun updatePokemonList(newList: List<pokemon>) {
+    fun updatePokemonList(newList: List<Pokemon>) {
 
         val diffResult = DiffUtil.calculateDiff(PokemonDiff(pokemonList, newList))
         pokemonList = newList

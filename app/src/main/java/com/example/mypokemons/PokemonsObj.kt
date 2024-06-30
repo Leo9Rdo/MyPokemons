@@ -8,7 +8,6 @@ object pokemon_rep {
         pokemon(4, "Squirtle", "water", "5 sm", "90 g", R.drawable.squirtle),
         pokemon(5, "Wartortle", "water", "10 sm", "150 g", R.drawable.wartortle),
         pokemon(6, "Ivysaur", "poison", "10 sm", "130 g", R.drawable.ivysaur)
-
     )
 
     fun get_pokemon_by_id(id: Int): pokemon? {

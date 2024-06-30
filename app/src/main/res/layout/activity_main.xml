@@ -8,7 +8,6 @@
     android:background="#FFFDD0"
     tools:context=".MainActivity">
 
-
     <ImageView
         android:id="@+id/pokemonImage"
         android:layout_width="0dp"

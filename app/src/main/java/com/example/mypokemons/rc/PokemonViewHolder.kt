@@ -3,7 +3,7 @@ package com.example.mypokemons.rc
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mypokemons.databinding.ItemPokemonBinding
 import com.example.mypokemons.pokemon
-import com.example.mypokemons.pokemon_rep.pokemons
+
 
 class PokemonViewHolder(
     private val binding: ItemPokemonBinding

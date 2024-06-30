@@ -36,6 +36,5 @@ class PokemonListAdapter(private var pokemonList: List<pokemon>) :
         pokemonList = newList
         diffResult.dispatchUpdatesTo(this)
     }
-
     fun getPokemonList() = pokemonList
 }

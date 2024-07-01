@@ -10,7 +10,7 @@ object PokemonRep {
         Pokemon(6, "Ivysaur", "poison", "10 sm", "130 g", R.drawable.ivysaur)
     )
 
-    fun get_pokemon_by_id(id: Int): Pokemon? {
+    fun getPokemonById(id: Int): Pokemon? {
         return pokemons.find { it.id == id }
     }
 }

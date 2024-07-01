@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val newList = pokemons
-        adapter.updatePokemonList(newList)
+        //val newList = pokemons
+        adapter.updatePokemonList(pokemons)
 
         binding.pokemonImage.setOnClickListener {
             val currentPokemon = pokemonData.firstOrNull()

@@ -14,9 +14,14 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        intent?.let {
-            val pokemon_id = it.getIntExtra("pokemon_id", -1)
-            val pokemon = PokemonRep.get_pokemon_by_id(pokemon_id)
+        if (intent == null){
+            Toast.makeText(this,"Null", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+            val pokemonId = intent.getIntExtra("pokemon_id", -1)
+            val pokemon = PokemonRep.getPokemonById(pokemonId)
 
             if (pokemon != null) {
                 with(binding) {
@@ -30,7 +35,7 @@ class SecondActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                 finish()
             }
-        }
+
 
         binding.btnBack2.setOnClickListener {
             finish()

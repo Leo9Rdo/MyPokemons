@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //val newList = pokemons
         adapter.updatePokemonList(pokemons)
 
         binding.pokemonImage.setOnClickListener {

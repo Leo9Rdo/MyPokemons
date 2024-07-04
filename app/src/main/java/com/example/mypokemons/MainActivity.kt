@@ -14,14 +14,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: PokemonListAdapter
 
-    private val pokemonData = pokemons
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = PokemonListAdapter(pokemonData)
+        adapter = PokemonListAdapter(pokemons)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -30,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        adapter.onClick = { pokemon:Pokemon ->
+        adapter.onClick = { pokemon: Pokemon ->
 
             val intent = Intent(this, SecondActivity::class.java).apply {
                 putExtra("pokemon_id", pokemon.id)
@@ -41,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         adapter.updatePokemonList(pokemons)
 
         binding.pokemonImage.setOnClickListener {
-            val currentPokemon = pokemonData.firstOrNull()
+            val currentPokemon = pokemons.firstOrNull()
             currentPokemon?.let {
                 val intent = Intent(this, SecondActivity::class.java).apply {
                     putExtra("pokemon_id", currentPokemon.id)
